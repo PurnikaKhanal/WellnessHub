@@ -40,6 +40,20 @@
         void authentication()
         { 
             attempts=3;
+            string extract;//to check if file is empty
+          ifstream file("pin.txt");
+        if (file.is_open()) 
+    {
+        getline(file, extract);  // read first line from file into a
+        file.close();
+    }
+     if (extract.empty()) 
+        {
+        initialpin=="open";
+        }
+        else{
+           initialpin=extract;
+        }
         while(attempts>0)
             {
                 string temp;
@@ -88,7 +102,6 @@
     }
          while(attempts>0)
             {
-                attempts--;
                 cout<<"enter your password:"<<endl;
                 cin>>temp;
                 if(checkpin==temp && attempts!=0)
@@ -96,12 +109,14 @@
                 cout<<"acess granted"<<endl;
                 break;
                 }
-                else
+                else if(attempts==0)
                 {
                     cout<<"to many incoorect attempts \n acess denied....";
                     exit(0);
 
                 }
+                 attempts--;
+                cout<<attempts<<" atempts are left"<<endl;
             }
         }
     
