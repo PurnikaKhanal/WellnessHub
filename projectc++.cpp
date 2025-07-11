@@ -3,6 +3,7 @@
     #include<fstream>
     using namespace std;
     class pin
+
     {
         private:
         string initialpin;
@@ -20,7 +21,7 @@
             while(attempts>0)
             {
                 string t;
-                cout<<"enter open to continue"<<endl;
+                cout<<"enter 'open' to continue"<<endl;
                 cin>>t;
                 if(t==initialpin && attempts!=0)
                 {
@@ -57,11 +58,11 @@
         while(attempts>0)
             {
                 string temp;
-                cout<<"enter your old password:"<<endl;
+                cout<<"enter your 'old' password:"<<endl;
                 cin>>temp;
                 if(temp==initialpin && attempts!=0)
                 {
-                   cout<<"enter your new password"<<endl;
+                   cout<<"enter your 'new' password"<<endl;
                    cin>>newpin;
            
             ofstream file("pin.txt");  // overwrite in file
@@ -119,14 +120,32 @@
                 cout<<attempts<<" atempts are left"<<endl;
             }
         }
-    
+
+    };
+    class person
+    {
+        protected:
+        string name;
+        int age;
+        float height;
+        public:
+        void inputpersondata()
+        {
+            cout<<"enter your name:"<<endl;
+            cin>>name;
+            cout<<"enter your age:"<<endl;
+            cin>>age;
+            cout<<"enter your height in cm:"<<endl;
+            cin>>height;
+        }
     };
     int main()
     {
+        pin pass;
+        person per;
         string extract;//to check if file is empty
         int choice;
           ifstream file("pin.txt");
-        pin p;
         if (file.is_open()) 
     {
         getline(file, extract);  // read first line from file into a
@@ -135,26 +154,72 @@
     
         if (extract.empty()) 
         {
-        p.check();
+        pass.check();
         }
         else{
-            p.newcheck();
+            pass.newcheck();
         }
         do
         {
-            cout<<"1.change password"<<endl;
-            cout<<"2.exit"<<endl;
+            cout<<"\t1.Data"<<endl;
+            cout<<"\t2.Display history"<<endl;
+            cout<<"\t3.Personal goals"<<endl;
+            cout<<"\t4.change password"<<endl;
+            cout<<"\t5.exit"<<endl;
             cin>>choice;
             switch(choice)
             {
                 case 1:
-                p.authentication();
+                int achoice;
+                cout<<"\t1.Enter data"<<endl;
+                cout<<"\t2.Show data"<<endl;
+                 cin>>achoice;
+                switch (achoice)
+                {
+                case 1:
+                     per.inputpersondata();
+                    break;
+                
+                    case 2:
+                    break;
+
+                default:
+                    cout<<"incorrect option"<<endl;   
+                  }
                 break;
+
                 case 2:
+                break;
+
+                case 3:
+                int gchoice;
+                cout<<"\t1.Show goal"<<endl;
+                cout<<"\t2.Change goal"<<endl;
+                 cin>>gchoice;
+                switch (gchoice)
+                {
+                case 1:
+                    break;
+                case 2:
+                break;
+
+                default:
+                 cout<<"incorrect option"<<endl;
+                
+                }
+                break;
+                
+                case 4:
+                pass.authentication();
+                break; 
+
+                case 5:
+                cout<<"exiting the program.......";
                 exit(0);
+
                 default:
                 cout<<"incorrect option"<<endl;
-                break;
+
             }
-        } while (choice!=2);
+        } while (choice!=5);
     }
