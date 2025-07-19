@@ -488,7 +488,7 @@ public:
 
     void changeGoal()           //goal value lai overwrite (change) garxa
     {
-        cout << "Enter new water intake goal: "<<"l";
+        cout << "Enter new water intake goal(litre): "<<endl;
         cin >> waterGoal;
         cout << "Enter new sleep goal(hour): "<<endl;
         cin >> sleepGoal;
