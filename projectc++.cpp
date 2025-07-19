@@ -20,7 +20,7 @@ public:
     // check initialpin
     void check()
     {
-        while (attempts > 0)
+        while (attempts >= 0)
         {
             string t;
             cout << "Enter 'open' to continue: ";
@@ -33,7 +33,7 @@ public:
             else if (attempts == 0)
             {
                 cout << "Too many incorrect attempts \n Access denied.......";
-                exit(0);
+                exit(-1);
             }
             attempts--;
             cout << attempts << " Attempts are left" << endl;
@@ -59,7 +59,7 @@ public:
         {
             initialpin = extract;
         }
-        while (attempts > 0)
+        while (attempts >= 0)
         {
             string temp;
             cout << "Enter your 'old' password: ";
@@ -112,7 +112,7 @@ public:
         {
             cout << "Unknown error occured\n";
         }
-        while (attempts > 0)
+        while (attempts >= 0)
         {
             cout << "Enter your password: ";
             cin >> temp;
@@ -124,7 +124,7 @@ public:
             else if (attempts == 0)
             {
                 cout << "To many incorrect attempts \n Access denied....";
-                exit(0);
+                exit(-1);
             }
             attempts--;
             cout << attempts << " Attempts are left" << endl;
