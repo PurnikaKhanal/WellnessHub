@@ -178,8 +178,8 @@ This was built as a semester project, but improvements are welcome! Feel free to
 
 This project was created as a collaborative semester project. Special thanks to all contributors!
 
-- @purnikaKhanal
-- @ThePrashanna-062
+- [@PurnikaKhanal](https://github.com/PurnikaKhanal)
+- [@ThePrashanna-062](https://github.com/ThePrashanna-062)
 
 ## 📧 Contact
 
